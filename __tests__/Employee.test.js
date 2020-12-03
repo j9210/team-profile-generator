@@ -1,57 +1,34 @@
 const Employee = require('../lib/Employee');
 
 test('creates an employee object', () => {
-    const e = new Employee();
+    const employee = new Employee('name', 4, 'person@place.com');
 
-    expect(typeof(e)).toBe('object');
+    expect(employee.name).toEqual(expect.any(String));
+    expect(employee.id).toEqual(expect.any(Number));
+    expect(employee.email).toEqual(expect.any(String));
 });
 
-test('set name using constructor argument', () => {
-    const name = "sam";
-    const e = new Employee(name);
+test("returns employee's name as a String" , () => {
+    const employee = new Employee('name', 4, 'person@place.com');
 
-    expect(e.name).toBe(name);
+    expect(employee.getName()).toContain(employee.name);
 });
 
-test('set id using constructor argument', () => {
-    const id = 4;
-    const e = new Employee("name", id);
+test("returns employee's id as a Number", () => {
+    const employee = new Employee('name', '4', 'person@place.com');
 
-    expect(e.id).toBe(id);
+    expect(employee.getId()).toContain(employee.id);
 });
 
-test('set email using constructor argument', () => {
-    const email = "person@place.com";
-    const e = new Employee("name", 5, email);
+test("returns employee's email as a String", () => {
+    const employee = new Employee('name', 4, 'person@place.com');
 
-    expect(e.email).toBe(email);
+    expect(employee.getEmail()).toContain(employee.email);
 });
 
-test('get name', () => {
-    const name = "sam";
-    const e = new Employee(name);
+test("returns employee's role as a String", () => {
+    const employee = new Employee('name', 4, 'person@place.com');
 
-    expect(e.getName()).toBe(name);
-});
-
-test('get id', () => {
-    const id = 3;
-    const e = new Employee("name", id);
-
-    expect(e.getId()).toBe(id);
-});
-
-test('get email', () => {
-    const email = "random@random.net";
-    const e = new Employee("name", 5, email);
-
-    expect(e.getEmail()).toBe(email);
-});
-
-test('get role', () => {
-    const role = 'Employee';
-    const e = new Employee("name", 5, "j@g.c");
-
-    expect(e.getRole()).toBe(role);
+    expect(employee.getRole()).toContain('Employee');
 });
 

@@ -1,23 +1,19 @@
-const { TestScheduler } = require('jest');
 const Manager = require('../lib/Manager');
 
-test('set office number', () => {
-    const officeNumber = 4;
-    const e = new Manager("name", 5, "kdlsa", officeNumber);
+test('creates Manager object with office number', () => {
+    const manager = new Manager("name", 5, "kdlsa", '444-444-4444');
 
-    expect(e.officeNumber).toBe(officeNumber);
+    expect(manager.officeNumber).toEqual('444-444-4444');
 })
 
-test('get role', () => {
-    const role = 'Manager';
-    const e = new Manager("name", 4, "asdf", 8);
+test("returns employee's role as manager", () => {
+    const manager = new Manager("name", 4, "asdf", 8);
 
-    expect(e.getRole()).toBe('Manager');
+    expect(manager.getRole()).toBe('Manager');
 });
 
-test('get office number', () => {
-    const office = 4;
-    const e = new Manager("name", 4, "asdf", office);
+test("returns manager's office number", () => {
+    const manager = new Manager("name", 4, "asdf", '444-444-4444');
 
-    expect(e.getOffice()).toBe(office);
+    expect(manager.getOfficeNumber()).toContain(manager.officeNumber);
 })
