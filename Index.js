@@ -25,7 +25,7 @@ class Prompter {
                     }
                 },
                 {
-                    type: 'number',
+                    type: 'input',
                     name: 'id',
                     message: "Please enter the team manager's ID.",
                     validate: idInput => {
