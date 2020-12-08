@@ -10,15 +10,13 @@ module.exports = (employeeHtml) => {
         <script src="https://kit.fontawesome.com/3d592c97c3.js" crossorigin="anonymous"></script>
         <title>Our Team</title>
     </head>
-    <body>
-       
-            <h1 class="bg-primary text-white text-center p-10">Our Team</h1>
-  
-        <main class="container-lg">
-            <div class="container d-flex justify-content-center flex-wrap">
-                <div class="row">
-                    ${generateHtml(employeeHtml)}
-                </div>
+    <body class="bg-secondary">
+        <h1 class="bg-danger text-light text-center py-4">
+            <span><i class="fas fa-user-friends"></i></span> Our Team <span><i class="fas fa-user-friends fa-flip-horizontal"></i></span>
+        </h1>
+        <main class="container">
+            <div class="row d-flex justify-content-around flex-wrap" style="margin-top: 3rem;">
+                ${generateHtml(employeeHtml)}
             </div>
         </main>
     </body>
@@ -29,17 +27,17 @@ module.exports = (employeeHtml) => {
 const generateHtml = (employees) => {
     const managerCard = (manager) => {
         return `
-            <div class="card" style="width: 18rem;">
-                <div class="card-header bg-danger text-center">
+            <div style="width: 18rem;">
+                <div class="card-header bg-primary text-center">
                     <h2 class="card-text text-white">${manager.getName()}</h2>
                     <h5 class="card-text text-light">
                         <span><i class="fas fa-briefcase"></i></span> ${manager.getRole()}
                     </h5>
                 </div>
-                <div class="card-body bg-light">
+                <div class="card-body bg-light rounded-bottom shadow-lg mb-3">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${manager.getId()}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
+                        <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}" class="text-decoration-none">${manager.getEmail()}</a> </li>
                         <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
                     </ul>
                 </div>
@@ -49,42 +47,42 @@ const generateHtml = (employees) => {
 
     const engineerCard = (engineer) => {
         return `
-        <div class="card" style="width: 18rem;">
-            <div class="card-header bg-danger text-center">
-                <h2 class="card-text text-white">${engineer.getName()}</h2>
-                <h5 class="card-text text-light">
-                    <span><i class="fas fa-laptop"></i></span> ${engineer.getRole()}
-                </h5>
+            <div style="width: 18rem;">
+                <div class="card-header bg-warning text-center">
+                    <h2 class="card-text text-white">${engineer.getName()}</h2>
+                    <h5 class="card-text text-light">
+                        <span><i class="fas fa-laptop"></i></span> ${engineer.getRole()}
+                    </h5>
+                </div>
+                <div class="card-body bg-light rounded-bottom shadow-lg mb-3">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID: ${engineer.getId()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}" class="text-decoration-none">${engineer.getEmail()}</a> </li>
+                        <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" class="text-decoration-none">${engineer.getGithub()}</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="card-body bg-light">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${engineer.getId()}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </li>
-                    <li class="list-group-item">GitHub: ${engineer.getGithub()}</li>
-                </ul>
-            </div>
-        </div>
-    `
+        `
     };
 
     const internCard = (intern) => {
         return `
-        <div class="card" style="width: 18rem;">
-            <div class="card-header bg-danger text-center">
-                <h2 class="card-text text-white">${intern.getName()}</h2>
-                <h5 class="card-text text-light">
-                    <span><i class="fas fa-mug-hot"></i></span> ${intern.getRole()}
-                </h5>
+            <div style="width: 18rem;">
+                <div class="card-header bg-info text-center">
+                    <h2 class="card-text text-white">${intern.getName()}</h2>
+                    <h5 class="card-text text-light">
+                        <span><i class="fas fa-graduation-cap"></i></span> ${intern.getRole()}
+                    </h5>
+                </div>
+                <div class="card-body bg-light rounded-bottom shadow-lg mb-3">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID: ${intern.getId()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}" class="text-decoration-none">${intern.getEmail()}</a> </li>
+                        <li class="list-group-item">School: ${intern.getSchool()}</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card-body bg-light">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${intern.getId()}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a> </li>
-                    <li class="list-group-item">School: ${intern.getSchool()}</li>
-                </ul>
-            </div>
-        </div>
-    `
+        `
     };
 
     const ourTeam = [];
