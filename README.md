@@ -17,7 +17,10 @@
 
   ## Usage
   Use this app to create a team profile for your software engineering team.<br>
-  [Click here for a walkthrough video](https://youtu.be/C_No8P_gsXg)
+  [Click here for a walkthrough video of the application.](https://youtu.be/C_No8P_gsXg)
+  
+  ## Tests
+  [Click here for a demonstration of passing tests.](https://youtu.be/u8l3pxZKlNo)
   
   ## Contribution
   Made by Julia Tocker
